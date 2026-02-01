@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DSA Digital Signature</title>
+    <style>
+        body { font-family: Arial; background: #f2f2f2; padding: 40px; }
+        .box { background: white; padding: 20px; width: 420px; margin: auto; border-radius: 8px; }
+        input, button, textarea { width: 100%; margin: 8px 0; padding: 8px; }
+        button { cursor: pointer; }
+        textarea { height: 80px; }
+        .msg { font-weight: bold; text-align: center; }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h3>🔐 DSA Digital Signature System</h3>
+
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" required>
+
+        <button name="action" value="generate">Generate Keys</button>
+        <button name="action" value="sign">Sign File</button>
+
+        <textarea name="signature" placeholder="Paste signature here to verify"></textarea>
+
+        <button name="action" value="verify">Verify Signature</button>
+    </form>
+
+    <p class="msg">{{ msg }}</p>
+
+    {% if sig %}
+    <textarea readonly>{{ sig }}</textarea>
+    {% endif %}
+</div>
+
+</body>
+</html>
